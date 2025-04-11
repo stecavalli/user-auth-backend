@@ -7,9 +7,11 @@ require("dotenv").config();
 const app = express();
 const port = process.env.PORT || 3001;
 
-app.use(cors());
+app.use(cors({
+  origin: "https://userauthstecavalli.netlify.app" // ✅ consente solo richieste dal tuo frontend su Netlify
+}));
+app.use(express.json()); // 🔄 Spostato PRIMA delle rotte
 app.use("/api", authRoutes);
-app.use(express.json());
 
 // Test route
 app.get("/", (req, res) => {
