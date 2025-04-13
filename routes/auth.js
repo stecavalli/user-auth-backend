@@ -39,12 +39,28 @@ router.post("/login", async (req, res) => {
 // GET /api/users
 router.get("/users", async (req, res) => {
   try {
-    const users = await User.find(); // Ottieni tutti gli utenti dal database
-    res.status(200).json(users); // Restituisci gli utenti come JSON
+    const users = await User.find(); // Trova tutti gli utenti
+    res.status(200).json(users);
   } catch (err) {
-    res.status(500).json({ message: "Errore nel recupero degli utenti" });
+    res.status(500).json({ message: "Errore nel recupero degli utenti." });
   }
 });
+
+// DELETE /api/users/:username
+router.delete("/users/:username", async (req, res) => {
+  const { username } = req.params;
+
+  try {
+    const deletedUser = await User.findOneAndDelete({ username });
+    if (!deletedUser) {
+      return res.status(404).json({ message: "Utente non trovato." });
+    }
+    res.status(200).json({ message: "Utente eliminato." });
+  } catch (err) {
+    res.status(500).json({ message: "Errore durante l'eliminazione dell'utente." });
+  }
+});
+
 
 
 module.exports = router;
