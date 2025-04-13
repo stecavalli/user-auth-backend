@@ -36,4 +36,15 @@ router.post("/login", async (req, res) => {
   }
 });
 
+// GET /api/users
+router.get("/users", async (req, res) => {
+  try {
+    const users = await User.find(); // Ottieni tutti gli utenti dal database
+    res.status(200).json(users); // Restituisci gli utenti come JSON
+  } catch (err) {
+    res.status(500).json({ message: "Errore nel recupero degli utenti" });
+  }
+});
+
+
 module.exports = router;
