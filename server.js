@@ -23,7 +23,7 @@ mongoose.connect(process.env.MONGO_URI)
   .then(() => {
     console.log("✅ Connesso a MongoDB");
     app.listen(port, () => {
-      console.log(`🚀 Server in ascolto su http://localhost:${port}`);
+      console.log(`🚀 Server in ascolto sulla porta ${port}`);
     });
   })
   .catch((err) => console.error("Errore nella connessione a MongoDB:", err));
