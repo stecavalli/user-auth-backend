@@ -8,4 +8,4 @@ and the frontend by the [Netlify](https://www.netlify.com/) site.
 <br>
 The database is hosted on the [MongoDB](https://www.mongodb.com/) site. 
 <br>
-The [user-auth-backend](https://github.com/stecavalli/user-auth-backend) repository is an integral part of this project.
+The [user-auth-frontend](https://github.com/stecavalli/user-auth-frontend) repository is an integral part of this project.
