@@ -8,7 +8,7 @@ const app = express();
 const port = process.env.PORT || 3001;
 
 app.use(cors({
-  origin: "https://TUO-NOME-SITO.netlify.app" // ✅ consente solo richieste dal tuo frontend su Netlify
+  origin: "https://userauthstecavalli.netlify.app.netlify.app" // ✅ consente solo richieste dal tuo frontend su Netlify TUO-NOME-SITO
 }));
 app.use(express.json()); // 🔄 Spostato PRIMA delle rotte
 app.use("/api", authRoutes);
